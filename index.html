@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task 2 - Character Counter</title>
+</head>
+<body>
+<h2>Message Box (200 characters max)</h2>
+<textarea id="messageBox" rows="6" cols="50" maxlength="200"></textarea><br>
+<p id="charCount">0/200 characters</p>
+<p id="warning" style="color:red;"></p>
+
+<script>
+const messageBox = document.getElementById('messageBox');
+const charCount = document.getElementById('charCount');
+const warning = document.getElementById('warning');
+const maxChars = 200;
+
+messageBox.addEventListener('input', () => {
+const typed = messageBox.value.length;
+const remaining = maxChars - typed;
+
+charCount.textContent = `${typed}/${maxChars} characters`;
+
+if (typed >= maxChars) {
+warning.textContent = "You have reached the character limit.";
+} else {
+warning.textContent = "";
+}
+});
+</script>
+</body>
+</html>
